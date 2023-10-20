@@ -1,0 +1,519 @@
+[gd_scene load_steps=30 format=3 uid="uid://ceukjgqg548fh"]
+
+[ext_resource type="Script" path="res://Scripts/global.gd" id="1_0p3n2"]
+[ext_resource type="Script" path="res://Scripts/Buttons.gd" id="1_06fi1"]
+[ext_resource type="Script" path="res://addons/save_system/SaveSystem.gd" id="2_5aqnd"]
+[ext_resource type="Script" path="res://Scripts/Text.gd" id="2_vfpsm"]
+[ext_resource type="Texture2D" uid="uid://b3xn0ixduch3w" path="res://Textures/Background.png" id="3_tv0al"]
+[ext_resource type="Script" path="res://Scripts/Tools.gd" id="4_5xi7o"]
+[ext_resource type="Script" path="res://Scripts/Color.gd" id="4_7n6jb"]
+[ext_resource type="FontFile" uid="uid://o1w7o18uqo8u" path="res://Fonts/Perfect DOS VGA 437.ttf" id="4_tb0rc"]
+[ext_resource type="Texture2D" uid="uid://ies42kgrye7c" path="res://Textures/BlnkTool.png" id="4_vi747"]
+[ext_resource type="Texture2D" uid="uid://caut7s1i0ocrf" path="res://Textures/ToolShv1.png" id="5_8vuf2"]
+[ext_resource type="Script" path="res://Scripts/MouseMenu.gd" id="5_llna3"]
+[ext_resource type="Script" path="res://Scripts/Quit Save.gd" id="5_xlss7"]
+[ext_resource type="LabelSettings" uid="uid://c0mom1bjbqv6t" path="res://Label/LineBreak.tres" id="6_8h8yd"]
+[ext_resource type="AudioStream" uid="uid://b34wiebrwsc5i" path="res://Sound/click.mp3" id="7_1dk73"]
+[ext_resource type="LabelSettings" uid="uid://db2ff4661p0ac" path="res://Label/Header.tres" id="7_42n8s"]
+[ext_resource type="Script" path="res://Scripts/Winmode.gd" id="8_5s70v"]
+[ext_resource type="Texture2D" uid="uid://bb3kcpctdufiw" path="res://Textures/MouseMenu.png" id="9_lq4oe"]
+[ext_resource type="AudioStream" uid="uid://qtl5n1gbxwi4" path="res://Sound/Upgrade.mp3" id="11_tmeqp"]
+[ext_resource type="LabelSettings" uid="uid://c1bw14hl8p4ge" path="res://Label/Basic.tres" id="12_vw7sb"]
+[ext_resource type="Texture2D" uid="uid://b413r2j66ajj7" path="res://Textures/maxresdefault.jpg" id="18_a6orf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jrnpn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8m6y"]
+font = ExtResource("4_tb0rc")
+font_size = 41
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.498039)
+shadow_offset = Vector2(6, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o2hbj"]
+line_spacing = 0.0
+font = ExtResource("4_tb0rc")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.537255)
+shadow_offset = Vector2(5, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f7vvo"]
+font = ExtResource("4_tb0rc")
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.490196)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ks8je"]
+diffuse_texture = ExtResource("9_lq4oe")
+
+[sub_resource type="BoxMesh" id="BoxMesh_hndkn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jth5u"]
+line_spacing = 0.0
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_52846"]
+line_spacing = 0.0
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fmy0"]
+font_size = 20
+
+[node name="Full" type="Node2D"]
+script = ExtResource("1_0p3n2")
+
+[node name="Build" type="Node2D" parent="."]
+script = ExtResource("2_5aqnd")
+
+[node name="BG" type="MeshInstance2D" parent="Build"]
+modulate = Color(0.243137, 0.298039, 0.403922, 1)
+show_behind_parent = true
+position = Vector2(951.404, 554.442)
+rotation = 3.14159
+scale = Vector2(1967.32, -1160.28)
+mesh = SubResource("BoxMesh_jrnpn")
+
+[node name="TextureRect" type="TextureRect" parent="Build"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_tv0al")
+expand_mode = 1
+
+[node name="Buttons" type="Node2D" parent="."]
+script = ExtResource("1_06fi1")
+
+[node name="Click" type="Button" parent="Buttons"]
+offset_left = 1627.0
+offset_top = 292.0
+offset_right = 1855.0
+offset_bottom = 393.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_tb0rc")
+theme_override_font_sizes/font_size = 40
+text = "Make Dirt"
+
+[node name="Upgrades" type="Node2D" parent="Buttons"]
+
+[node name="Panel" type="Panel" parent="Buttons/Upgrades"]
+show_behind_parent = true
+offset_left = 431.0
+offset_top = 300.0
+offset_right = 956.0
+offset_bottom = 1084.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Buttons/Upgrades"]
+offset_left = 432.0
+offset_top = 300.0
+offset_right = 956.0
+offset_bottom = 1080.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/Upgrades/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Up1" type="Button" parent="Buttons/Upgrades/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "???????"
+
+[node name="Amt" type="Label" parent="Buttons/Upgrades/ScrollContainer/VBoxContainer/Up1"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 74.0
+offset_bottom = 27.0
+text = "Owned: 0"
+
+[node name="Cst" type="Label" parent="Buttons/Upgrades/ScrollContainer/VBoxContainer/Up1"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 21.0
+offset_right = 63.0
+offset_bottom = 47.0
+text = "Cost: 10"
+
+[node name="Workers" type="Label" parent="Buttons/Upgrades"]
+offset_left = 432.0
+offset_top = 256.0
+offset_right = 955.0
+offset_bottom = 303.0
+text = "Workers"
+label_settings = SubResource("LabelSettings_w8m6y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tools" type="Node2D" parent="Buttons"]
+script = ExtResource("4_5xi7o")
+
+[node name="Panel" type="Panel" parent="Buttons/Tools"]
+offset_left = 432.0
+offset_top = 50.0
+offset_right = 956.0
+offset_bottom = 254.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Buttons/Tools"]
+offset_left = 432.0
+offset_top = 50.0
+offset_right = 956.0
+offset_bottom = 254.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/Tools/ScrollContainer"]
+layout_mode = 2
+
+[node name="Row1" type="FlowContainer" parent="Buttons/Tools/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(524, 0)
+layout_mode = 2
+
+[node name="Tool1" type="TextureButton" parent="Buttons/Tools/ScrollContainer/VBoxContainer/Row1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("5_8vuf2")
+texture_disabled = ExtResource("4_vi747")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Tool2" type="TextureButton" parent="Buttons/Tools/ScrollContainer/VBoxContainer/Row1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+disabled = true
+texture_disabled = ExtResource("4_vi747")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Tool3" type="TextureButton" parent="Buttons/Tools/ScrollContainer/VBoxContainer/Row1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+disabled = true
+texture_disabled = ExtResource("4_vi747")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Tool4" type="TextureButton" parent="Buttons/Tools/ScrollContainer/VBoxContainer/Row1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+disabled = true
+texture_disabled = ExtResource("4_vi747")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Tool5" type="TextureButton" parent="Buttons/Tools/ScrollContainer/VBoxContainer/Row1"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+disabled = true
+texture_disabled = ExtResource("4_vi747")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Workers" type="Label" parent="Buttons/Tools"]
+offset_left = 432.0
+offset_top = 2.0
+offset_right = 955.0
+offset_bottom = 49.0
+text = "Tools"
+label_settings = SubResource("LabelSettings_w8m6y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Node2D" parent="."]
+script = ExtResource("2_vfpsm")
+
+[node name="CurAmount" type="Label" parent="Text"]
+offset_left = 1626.0
+offset_top = 216.0
+offset_right = 1851.0
+offset_bottom = 271.0
+text = "Dirt Made: 0"
+label_settings = SubResource("LabelSettings_o2hbj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DPS" type="Label" parent="Text"]
+offset_left = 1641.0
+offset_top = 246.0
+offset_right = 1834.0
+offset_bottom = 289.0
+text = "Dirt Per Second: 0"
+label_settings = SubResource("LabelSettings_f7vvo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="Load" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Quit Save" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+script = ExtResource("5_xlss7")
+
+[node name="AutoTimer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MouseMenu" type="TextureRect" parent="UI"]
+top_level = true
+layout_mode = 0
+offset_left = 332.0
+offset_top = -227.0
+offset_right = 562.0
+offset_bottom = -152.0
+texture = SubResource("CanvasTexture_ks8je")
+script = ExtResource("5_llna3")
+
+[node name="Desc" type="Label" parent="UI/MouseMenu"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 26.0
+offset_right = 436.0
+offset_bottom = 99.0
+text = "This is FUNNY PLACEHOLDER TEXT. Lorem ipsum dolor sit amet, gay sex"
+label_settings = ExtResource("12_vw7sb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="UI/MouseMenu"]
+modulate = Color(1, 1, 1, 0.396078)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 72.0
+offset_right = 439.0
+offset_bottom = 89.0
+scale = Vector2(1, 3)
+
+[node name="Cost" type="Label" parent="UI/MouseMenu"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 104.0
+offset_right = 438.0
+offset_bottom = 128.0
+text = "Cost: A burger and some fries"
+label_settings = ExtResource("12_vw7sb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 2
+offset_right = 413.0
+offset_bottom = 1085.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI"]
+layout_mode = 2
+offset_left = 2.0
+offset_right = 413.0
+offset_bottom = 1080.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Line3" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "-------------------------------------------------------------------------------------------------------------------------------"
+label_settings = ExtResource("6_8h8yd")
+horizontal_alignment = 1
+
+[node name="Stats" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Statistics"
+label_settings = ExtResource("7_42n8s")
+horizontal_alignment = 1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="UI/ScrollContainer/VBoxContainer/Stats"]
+modulate = Color(0.109804, 0.109804, 0.109804, 0.647059)
+show_behind_parent = true
+position = Vector2(204, 22.5)
+scale = Vector2(412, 63)
+mesh = SubResource("BoxMesh_hndkn")
+
+[node name="Line" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "-------------------------------------------------------------------------------------------------------------------------------"
+label_settings = ExtResource("6_8h8yd")
+horizontal_alignment = 1
+
+[node name="TotalAmount" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Dirt Made: 0"
+label_settings = SubResource("LabelSettings_jth5u")
+vertical_alignment = 1
+
+[node name="TotalClick" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Clicks: 0"
+label_settings = SubResource("LabelSettings_52846")
+
+[node name="spacing" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="spacing2" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_2fmy0")
+
+[node name="spacing3" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Line2" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "-------------------------------------------------------------------------------------------------------------------------------"
+label_settings = ExtResource("6_8h8yd")
+horizontal_alignment = 1
+
+[node name="Options" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+label_settings = ExtResource("7_42n8s")
+horizontal_alignment = 1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="UI/ScrollContainer/VBoxContainer/Options"]
+modulate = Color(0.109804, 0.109804, 0.109804, 0.647059)
+show_behind_parent = true
+position = Vector2(204, 22.5)
+scale = Vector2(412, 63)
+mesh = SubResource("BoxMesh_hndkn")
+
+[node name="Line4" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "-------------------------------------------------------------------------------------------------------------------------------"
+label_settings = ExtResource("6_8h8yd")
+horizontal_alignment = 1
+
+[node name="WinMode" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Window Mode:"
+
+[node name="OptionButton" type="OptionButton" parent="UI/ScrollContainer/VBoxContainer/WinMode"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 3.0
+offset_right = 302.0
+offset_bottom = 23.0
+script = ExtResource("8_5s70v")
+metadata/_edit_use_anchors_ = true
+
+[node name="spacing6" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="spacing5" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="spacing4" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Save"
+
+[node name="Line5" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "-------------------------------------------------------------------------------------------------------------------------------"
+label_settings = ExtResource("6_8h8yd")
+horizontal_alignment = 1
+
+[node name="ChangeBG" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Change BG Color"
+label_settings = ExtResource("7_42n8s")
+horizontal_alignment = 1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="UI/ScrollContainer/VBoxContainer/ChangeBG"]
+modulate = Color(0.109804, 0.109804, 0.109804, 0.647059)
+show_behind_parent = true
+position = Vector2(204, 22.5)
+scale = Vector2(412, 63)
+mesh = SubResource("BoxMesh_hndkn")
+
+[node name="Line6" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "-------------------------------------------------------------------------------------------------------------------------------"
+label_settings = ExtResource("6_8h8yd")
+horizontal_alignment = 1
+
+[node name="Color" type="ColorPicker" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+color = Color(0.243137, 0.298039, 0.403922, 1)
+edit_alpha = false
+picker_shape = 2
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+presets_visible = false
+script = ExtResource("4_7n6jb")
+
+[node name="Quit" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="spacing7" type="Label" parent="UI/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 199)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 2
+texture = ExtResource("18_a6orf")
+expand_mode = 1
+
+[node name="Sound" type="Node2D" parent="."]
+
+[node name="Click" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("7_1dk73")
+max_polyphony = 2681
+panning_strength = 0.0
+
+[node name="Upg" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("11_tmeqp")
+volume_db = 10.0
+panning_strength = 0.0
+
+[connection signal="saved" from="Build" to="Buttons" method="_on_build_saved"]
+[connection signal="gotime" from="Buttons" to="Timers/Quit Save" method="_on_buttons_gotime"]
+[connection signal="savetime" from="Buttons" to="UI/ScrollContainer/VBoxContainer/Color" method="_on_buttons_savetime"]
+[connection signal="pressed" from="Buttons/Click" to="Buttons" method="_on_click_pressed"]
+[connection signal="pressed" from="Buttons/Upgrades/ScrollContainer/VBoxContainer/Up1" to="Buttons" method="_on_up_1_pressed"]
+[connection signal="mouse_entered" from="Buttons/Tools/ScrollContainer/VBoxContainer/Row1/Tool1" to="Buttons/Tools" method="_on_tool_1_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Tools/ScrollContainer/VBoxContainer/Row1/Tool1" to="Buttons/Tools" method="_on_tool_1_mouse_exited"]
+[connection signal="pressed" from="Buttons/Tools/ScrollContainer/VBoxContainer/Row1/Tool1" to="Buttons/Tools" method="_on_tool_1_pressed"]
+[connection signal="timeout" from="Timers/Load" to="Build" method="_on_load_timeout"]
+[connection signal="timeout" from="Timers/Quit Save" to="Buttons" method="_on_quit_save_timeout"]
+[connection signal="timeout" from="Timers/AutoTimer" to="Buttons" method="_on_auto_timer_timeout"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/Save" to="Buttons" method="_on_save_pressed"]
+[connection signal="color_changed" from="UI/ScrollContainer/VBoxContainer/Color" to="UI/ScrollContainer/VBoxContainer/Color" method="_on_color_changed"]
+[connection signal="colorchange" from="UI/ScrollContainer/VBoxContainer/Color" to="Buttons" method="_on_color_colorchange"]
+[connection signal="colorchange" from="UI/ScrollContainer/VBoxContainer/Color" to="UI/ScrollContainer/VBoxContainer/Color" method="_on_colorchange"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/Quit" to="Buttons" method="_on_quit_pressed"]
